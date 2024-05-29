@@ -1,0 +1,20 @@
+$mainColor: #131722;
+
+body {
+   background-color: $mainColor;
+   color: #fff;
+   font-family: "segoe ui light";
+}
+
+.brdr {
+   height: 1px;
+   background-color: rgb(59, 59, 59);
+   margin: 20px 0;
+}
+
+a,
+a:hover,
+i {
+   color: #fff;
+   text-decoration: none;
+}
