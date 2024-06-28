@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link,NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function People ()
 {
@@ -11,20 +11,20 @@ export default function People ()
   async function getTrendingPeople ()
   {
     let { data } = await axios.get(
-      `https://api.themoviedb.org/3/trending/person/day?api_key=b83cc031768f2a4781dd594de3d35111${ currentPage }`
+      `https://api.themoviedb.org/3/trending/person/day?api_key=b83cc031768f2a4781dd594de3d35111&language=en-US&page=${ currentPage }`
     );
 
     setTrendingPeople( data.results );
   }
 
-  async function searchPeople ( e )
+  async function searchTvShows ( e )
   {
 
     let searchKey = e.target.value;
     if ( searchKey )
     {
       let { data } = await axios.get(
-        `https://api.themoviedb.org/3/search/person?api_key=b83cc031768f2a4781dd594de3d35111&language=en-US&page=${ currentPage }&query=${ searchKey }&include_adult=true`
+        `https://api.themoviedb.org/3/search/tv?api_key=b83cc031768f2a4781dd594de3d35111&language=en-US&page=${ currentPage }&query=${ searchKey }&include_adult=true`
       );
       setTrendingPeople( data.results );
     } else
@@ -39,10 +39,11 @@ export default function People ()
     setCurrentPage( page );
   }
 
-  useEffect( () =>
-  {
-    getTrendingPeople();
-  },[currentPage] );
+  useEffect(
+    () =>
+    {
+      getTrendingPeople();
+    }, );
 
   return (
     <>
@@ -51,27 +52,21 @@ export default function People ()
 
       { trendingPeople != null ? <div className="container">
 
-        <input type="text" onKeyUp={ searchPeople } className="form-control bg-transparent text-white my-5" placeholder="Search ...." />
+        <input type="text" onKeyUp={ searchTvShows } className="form-control bg-transparent text-white my-5" placeholder="Search ...." />
 
         <div className="row mt-5 align-items-center">
-
-
-
-          { trendingPeople.map( ( people, idx ) => <div key={ idx } className="col-md-2">
-
-            <div className="people">
-              
-              <Link to={ `/details/${ people.id }` }>
-              <img src={ "https://image.tmdb.org/t/p/w500/" + people.profile_path } className="w-100" alt={ people.title } />
-                <h6> { people.name } </h6>
+          { trendingPeople.map( ( person, idx ) =>
+            <div key={ idx } className="col-md-2">
+              <div className="tv">
+                <Link to={ `/people/details/${ person.id }` }>
+                  <img src={ "https://image.tmdb.org/t/p/w500/" + person.poster_path } className="w-100" alt={ person.title } />
+                  <h6> { person.name } </h6>
                 </Link>
-
+              </div>
             </div>
-
-          </div> ) }
-
-
+          ) }
         </div>
+
         <nav aria-label="Page navigation example">
           <ul className="pagination justify-content-center">
             { currentPage > 1 ? (
@@ -96,14 +91,13 @@ export default function People ()
             ) }
           </ul>
         </nav>
+
       </div>
         :
         <div className="vh-100 d-flex justify-content-center align-items-center">
-
-        <i className="fa-solid fa-spinner fa-spin fa-7x text-white"></i>
-
-      </div> }
-
+          <i className="fa-solid fa-spinner fa-spin fa-7x text-white"></i>
+        </div>
+      }
     </>
   );
 }

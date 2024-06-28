@@ -29,7 +29,7 @@ export default function MovieDetails ()
           <div className="col-md-9">
             <div className="item">
               <h1>
-                { trendingMovies?.title } { trendingMovies?.name }
+                { trendingMovies.title } { trendingMovies.name }
               </h1>
               <p>{ trendingMovies?.tagline }</p>
               <ul className="list-unstyled d-flex">

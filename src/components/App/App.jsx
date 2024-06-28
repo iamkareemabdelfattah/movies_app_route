@@ -50,12 +50,12 @@ function App ()
           <ProtectedRoute path='/movies' component={ Movies } />
           <ProtectedRoute path='/people' component={ People } />
           <ProtectedRoute path='/tvshow' component={ Tvshows } />
-          <Route path='/:details/:id/' component={ MovieDetails } />
-          <Route path='/:details/:id/' component={ TvDetails } />
-          <Route path='/:details/:id/' component={ PeopleDetails } />
+          <Route path='/movies/:id' component={ MovieDetails } />
+          <Route path='/tvshows/details/:id' component={ TvDetails } />
+          <Route path='/people/details/:id' component={ PeopleDetails } />
           <Route path='/login' render={ ( props ) => <Login getUserData={ getUserData } { ...props } /> } />
           <Route path='/register' render={ ( props ) => <Register  { ...props } /> } />
-          <Route path='*' component={Notfound} />
+          <Route path='*' component={ Notfound } />
         </Switch>
       </div>
     </div>
