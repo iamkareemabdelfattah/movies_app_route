@@ -17,14 +17,14 @@ export default function People ()
     setTrendingPeople( data.results );
   }
 
-  async function searchTvShows ( e )
+  async function searchTrendingPeople ( e )
   {
 
     let searchKey = e.target.value;
     if ( searchKey )
     {
       let { data } = await axios.get(
-        `https://api.themoviedb.org/3/search/tv?api_key=b83cc031768f2a4781dd594de3d35111&language=en-US&page=${ currentPage }&query=${ searchKey }&include_adult=true`
+        `https://api.themoviedb.org/3/search/person?api_key=b83cc031768f2a4781dd594de3d35111&language=en-US&page=${ currentPage }&query=${ searchKey }&include_adult=true`
       );
       setTrendingPeople( data.results );
     } else
@@ -52,13 +52,13 @@ export default function People ()
 
       { trendingPeople != null ? <div className="container">
 
-        <input type="text" onKeyUp={ searchTvShows } className="form-control bg-transparent text-white my-5" placeholder="Search ...." />
+        <input type="text" onKeyUp={ searchTrendingPeople } className="form-control bg-transparent text-white my-5" placeholder="Search ...." />
 
         <div className="row mt-5 align-items-center">
           { trendingPeople.map( ( person, idx ) =>
             <div key={ idx } className="col-md-2">
               <div className="tv">
-                <Link to={ `/people/details/${ person.id }` }>
+                <Link to={ `/person/info/${ person.id }` }>
                   <img src={ "https://image.tmdb.org/t/p/w500/" + person.poster_path } className="w-100" alt={ person.title } />
                   <h6> { person.name } </h6>
                 </Link>

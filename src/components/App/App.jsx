@@ -48,11 +48,11 @@ function App ()
           <Redirect exact from='/' to='/home' />
           <ProtectedRoute path='/home' component={ Home } />
           <ProtectedRoute path='/movies' component={ Movies } />
+          <Route path='/details/:id' component={ MovieDetails } />
           <ProtectedRoute path='/people' component={ People } />
+          <Route path='/person/info/:id' component={ PeopleDetails } />
           <ProtectedRoute path='/tvshow' component={ Tvshows } />
-          <Route path='/movies/:id' component={ MovieDetails } />
           <Route path='/tvshows/details/:id' component={ TvDetails } />
-          <Route path='/people/details/:id' component={ PeopleDetails } />
           <Route path='/login' render={ ( props ) => <Login getUserData={ getUserData } { ...props } /> } />
           <Route path='/register' render={ ( props ) => <Register  { ...props } /> } />
           <Route path='*' component={ Notfound } />

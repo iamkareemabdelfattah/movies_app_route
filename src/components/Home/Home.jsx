@@ -44,7 +44,7 @@ export default function Home ()
 
                     { trendingMovies.map( ( movie, index ) =>
                         <div className='col-md-2 my-2' key={ index }>
-                            <Link to={ `${ movie.id }` }>
+                            <Link to={ `/details/${ movie.id }` }>
                                 <img className='w-100' src={ imgBaseUrl + movie.poster_path } alt={ movie.title } />
                                 <h2 className='h6 mt-2'>{ movie.title }</h2>
                             </Link>
@@ -87,7 +87,7 @@ export default function Home ()
                     </div>
                     { trendingPeople.map( ( person, index ) =>
                         <div className='col-md-2 my-2' key={ index }>
-                            <Link to={ `/people/details/${ person.id }` }>
+                            <Link to={ `/person/info/${ person.id }` }>
 
                                 <img className='w-100' src={ imgBaseUrl + person.profile_path } alt="people.title" />
                                 <h2 className='h6 mt-2'>{ person.name }</h2>
