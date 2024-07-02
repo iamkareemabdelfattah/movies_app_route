@@ -17,12 +17,13 @@ export default function TvDetails ()
   useEffect( () =>
   {
     getDetails();
-  } );
+  }, [ trendingTvshows ] );
   return (
     <>
       <div className="container py-5">
         <div className="row">
           <div className="col-md-3">
+            
             <img src={ "https://image.tmdb.org/t/p/w500" + trendingTvshows?.poster_path } className="w-100" alt="" />
           </div>
           <div className="col-md-9">
@@ -32,8 +33,8 @@ export default function TvDetails ()
               </h1>
               <p>{ trendingTvshows?.tagline }</p>
               <ul className="list-unstyled d-flex">
-                { trendingTvshows?.genres?.map( ( genre ) => (
-                  <div className="bg-info p-3 mx-2 rounded-2">{ genre.name }</div>
+                { trendingTvshows?.genres?.map( ( genre,idx ) => (
+                  <div className="bg-info p-3 mx-2 rounded-2" key={idx}>{ genre.name }</div>
                 ) ) }
               </ul>
               <p>vote : { trendingTvshows?.vote_average }</p>

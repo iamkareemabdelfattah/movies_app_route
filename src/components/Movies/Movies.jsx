@@ -31,7 +31,6 @@ export default function Movies ()
     {
       getTrendingMovies();
     }
-
   }
 
   function handlePaginate ( page )
@@ -43,7 +42,8 @@ export default function Movies ()
     () =>
     {
       getTrendingMovies();
-    }, );
+    },[currentPage]
+  );
 
   return (
     <>
@@ -58,9 +58,9 @@ export default function Movies ()
           { trendingMovies.map( ( movie, idx ) =>
             <div key={ idx } className="col-md-2">
               <div className="movie">
-                <Link to={ `/details/${ movie.id }` }>
+                <Link to={ `${ movie.id }` }>
                   <img src={ "https://image.tmdb.org/t/p/w500/" + movie.poster_path } className="w-100" alt={ movie.title } />
-                  <h6> { movie.name } </h6>
+                  <h6> { movie.title } </h6>
                 </Link>
               </div>
             </div>

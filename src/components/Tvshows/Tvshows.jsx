@@ -43,7 +43,7 @@ export default function Tvshows ()
     () =>
     {
       getTrendingTvShows();
-    }, );
+    },[currentPage] );
 
   return (
     <>

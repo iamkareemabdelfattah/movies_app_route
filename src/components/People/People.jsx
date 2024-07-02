@@ -1,4 +1,4 @@
-import axios from "axios";
+﻿import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from 'react-router-dom';
 
@@ -43,7 +43,7 @@ export default function People ()
     () =>
     {
       getTrendingPeople();
-    }, );
+    },[currentPage] );
 
   return (
     <>
@@ -58,7 +58,7 @@ export default function People ()
           { trendingPeople.map( ( person, idx ) =>
             <div key={ idx } className="col-md-2">
               <div className="tv">
-                <Link to={ `/person/info/${ person.id }` }>
+                <Link to={ `/people/details/${ person.id }` }>
                   <img src={ "https://image.tmdb.org/t/p/w500/" + person.poster_path } className="w-100" alt={ person.title } />
                   <h6> { person.name } </h6>
                 </Link>

@@ -17,7 +17,7 @@ export default function PeopleDetails ()
   useEffect( () =>
   {
     getDetails();
-  } );
+  }, [ trendingPeople] );
   return (
     <>
       <div className="container py-5">
