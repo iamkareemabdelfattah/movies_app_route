@@ -6,7 +6,7 @@ export default function MovieDetails ()
 {
   let [ trendingMovies, setTrendingMovies ] = useState( [] );
   let params = useParams();
-  
+
   async function getDetails ()
   {
     let { data } = await axios.get( `https://api.themoviedb.org/3/movie/${ params.id }?api_key=b83cc031768f2a4781dd594de3d35111&language=en-US` );
@@ -18,8 +18,8 @@ export default function MovieDetails ()
     () =>
     {
       getDetails();
-    }, [ trendingMovies ]);
-  
+    }, [ trendingMovies ] );
+
 
   return (
     <>
@@ -35,8 +35,8 @@ export default function MovieDetails ()
               </h1>
               <p>{ trendingMovies?.tagline }</p>
               <ul className="list-unstyled d-flex">
-                { trendingMovies?.genres?.map( ( genre,idx ) => (
-                  <div className="bg-info p-3 mx-2 rounded-2" key={idx}>{ genre.name }</div>
+                { trendingMovies?.genres?.map( ( genre, idx ) => (
+                  <div className="bg-info p-3 mx-2 rounded-2" key={ idx }>{ genre.name }</div>
                 ) ) }
               </ul>
               <p>vote : { trendingMovies?.vote_average }</p>

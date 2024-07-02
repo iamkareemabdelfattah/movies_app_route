@@ -58,7 +58,7 @@ export default function People ()
           { trendingPeople.map( ( person, idx ) =>
             <div key={ idx } className="col-md-2">
               <div className="tv">
-                <Link to={ `/people/details/${ person.id }` }>
+                <Link to={ `/person/info/${ person.id }` }>
                   <img src={ "https://image.tmdb.org/t/p/w500/" + person.poster_path } className="w-100" alt={ person.title } />
                   <h6> { person.name } </h6>
                 </Link>
