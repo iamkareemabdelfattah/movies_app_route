@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.3c4e2d5c.chunk.css",
+    "main.js": "/static/js/main.dac472f7.chunk.js",
+    "main.js.map": "/static/js/main.dac472f7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.1004382f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.1004382f.js.map",
+    "static/css/2.e26cc4ba.chunk.css": "/static/css/2.e26cc4ba.chunk.css",
+    "static/js/2.0cc384fd.chunk.js": "/static/js/2.0cc384fd.chunk.js",
+    "static/js/2.0cc384fd.chunk.js.map": "/static/js/2.0cc384fd.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.e26cc4ba.chunk.css.map": "/static/css/2.e26cc4ba.chunk.css.map",
+    "static/css/main.3c4e2d5c.chunk.css.map": "/static/css/main.3c4e2d5c.chunk.css.map",
+    "static/js/2.0cc384fd.chunk.js.LICENSE.txt": "/static/js/2.0cc384fd.chunk.js.LICENSE.txt",
+    "static/media/all.min.css": "/static/media/fa-solid-900.eeccf4f6.woff",
+    "static/media/logo-dark.5aab8137.webp": "/static/media/logo-dark.5aab8137.webp",
+    "static/media/page-not-found.6128961a.jpg": "/static/media/page-not-found.6128961a.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1004382f.js",
+    "static/css/2.e26cc4ba.chunk.css",
+    "static/js/2.0cc384fd.chunk.js",
+    "static/css/main.3c4e2d5c.chunk.css",
+    "static/js/main.dac472f7.chunk.js"
+  ]
+}
